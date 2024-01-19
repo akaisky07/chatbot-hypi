@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            background-color: #8B4513; /* Rust color */
+            color: #FFFFFF; /* White text for better visibility */
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #FFD700; /* Gold color */
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #FFD700; /* Gold color */
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FFD700; /* Gold color */
+            color: #8B4513; /* Rust color */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #DAA520; /* Darker gold color on hover */
+        }
+
+        #gif-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Add animation styles */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #gif {
+            animation: fadeIn 2s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form method="post" action="/predict">
+        <label for="user_input">User Input:</label>
+        <input type="text" name="user_input" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if user_input %}
+        <p>User Input: {{ user_input }}</p>
+        <p>Chatbot Response: {{ prediction }}</p>
+    {% endif %}
+    <div id="gif-container">
+        <img id="gif" src="/static/5f4smdm2rfd81.gif" alt="Animated GIF">
+    </div>
+</body>
+</html>
+
